@@ -205,6 +205,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcessoDados.Modules\AcessoDados.Modules.csproj">
+      <Project>{4dfa91c1-5c29-48dc-85cc-4ac054861185}</Project>
+      <Name>AcessoDados.Modules</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjetosNegocio\ObjetosNegocio.csproj">
       <Project>{cfaad152-2897-4293-8dc5-09e049630714}</Project>
       <Name>ObjetosNegocio</Name>

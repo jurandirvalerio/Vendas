@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using AcessoDados.Contratos;
 using ObjetosNegocio;
 
-namespace AcessoDados
+namespace AcessoDados.Implementacoes
 {
-	public class VendasContext : DbContext
+	public class VendasContext : DbContext, IVendasContext
 	{
 		#region Construtores
 

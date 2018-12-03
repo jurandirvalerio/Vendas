@@ -36,7 +36,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,12 +54,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteRepository.cs" />
+    <Compile Include="ProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcessoDados.Contratos\AcessoDados.Contratos.csproj">
+      <Project>{A0AFAF4A-BFBE-442A-8EA8-839FABD26897}</Project>
+      <Name>AcessoDados.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjetosNegocio\ObjetosNegocio.csproj">
+      <Project>{CFAAD152-2897-4293-8DC5-09E049630714}</Project>
+      <Name>ObjetosNegocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repositorio.Contratos]\Repositorios.Contratos.csproj">
       <Project>{3A73C99F-78F3-4D0C-90D1-F19D6C6C7339}</Project>
       <Name>Repositorios.Contratos</Name>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4D04981-7BD7-44A9-BCD0-F1A3E63B1E36}</ProjectGuid>
+    <ProjectGuid>{3BE59045-551D-48BD-9014-065BEA9E2DBA}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Servicos.Implementacoes</RootNamespace>
-    <AssemblyName>Servicos.Implementacoes</AssemblyName>
+    <RootNamespace>AcessoDados.Implementacoes</RootNamespace>
+    <AssemblyName>AcessoDados.Implementacoes</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,7 +36,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,26 +53,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteService.cs" />
-    <Compile Include="ProdutoService.cs" />
+    <Compile Include="Migrations\201812031716000_Inicio.cs" />
+    <Compile Include="Migrations\201812031716000_Inicio.Designer.cs">
+      <DependentUpon>201812031716000_Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VendasContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcessoDados.Contratos\AcessoDados.Contratos.csproj">
+      <Project>{A0AFAF4A-BFBE-442A-8EA8-839FABD26897}</Project>
+      <Name>AcessoDados.Contratos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ObjetosNegocio\ObjetosNegocio.csproj">
-      <Project>{CFAAD152-2897-4293-8DC5-09E049630714}</Project>
+      <Project>{cfaad152-2897-4293-8dc5-09e049630714}</Project>
       <Name>ObjetosNegocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Repositorio.Contratos]\Repositorios.Contratos.csproj">
-      <Project>{3A73C99F-78F3-4D0C-90D1-F19D6C6C7339}</Project>
-      <Name>Repositorios.Contratos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servicos.Contratos\Servicos.Contratos.csproj">
-      <Project>{79E82878-25EF-4526-B165-87EA277B2A35}</Project>
-      <Name>Servicos.Contratos</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812031716000_Inicio.resx">
+      <DependentUpon>201812031716000_Inicio.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,14 +3,14 @@ using ObjetosNegocio;
 
 namespace Repositorios.Contratos
 {
-	public interface IClienteRepository
+	public interface IProdutoRepository
 	{
 		#region Métodos
 
-		List<Cliente> Listar();
-		Cliente Obter(int codigo);
-		void Incluir(Cliente cliente);
-		void Alterar(Cliente cliente);
+		List<Produto> Listar();
+		Produto Obter(int codigo);
+		void Incluir(Produto produto);
+		void Alterar(Produto produto);
 		void Excluir(int codigo);
 
 		#endregion

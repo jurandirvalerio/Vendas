@@ -1,15 +1,15 @@
-namespace AcessoDados.Migrations
-{
-	using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations;
 
-	internal sealed class Configuration : DbMigrationsConfiguration<AcessoDados.VendasContext>
+namespace AcessoDados.Implementacoes.Migrations
+{
+	internal sealed class Configuration : DbMigrationsConfiguration<VendasContext>
 	{
 		public Configuration()
 		{
 			AutomaticMigrationsEnabled = false;
 		}
 
-		protected override void Seed(AcessoDados.VendasContext context)
+		protected override void Seed(VendasContext context)
 		{
 			//  This method will be called after migrating to the latest version.
 

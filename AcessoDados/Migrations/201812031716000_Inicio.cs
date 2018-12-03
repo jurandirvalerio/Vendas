@@ -1,9 +1,8 @@
-namespace AcessoDados.Migrations
+using System.Data.Entity.Migrations;
+
+namespace AcessoDados.Implementacoes.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
-    public partial class Inicio : DbMigration
+	public partial class Inicio : DbMigration
     {
         public override void Up()
         {
