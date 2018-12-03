@@ -2,7 +2,11 @@
 
 @{
 	ViewBag.Title = "Produto";
-	Layout = "_Layout";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+	@Scripts.Render("~/Scripts/Produto/cadastro.js")
 }
 
 <h2>Alterar produto</h2>

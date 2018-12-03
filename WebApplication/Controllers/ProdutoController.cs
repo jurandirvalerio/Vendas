@@ -16,7 +16,17 @@ namespace WebApplication.Controllers
 
 		public ActionResult Incluir()
 		{
-			return View();
+			return View(new ProdutoViewModel());
+		}
+		
+		[HttpPost]
+		public JsonResult Incluir(ProdutoViewModel produtoViewModel)
+		{
+			return Json(new
+			{
+				resultado = _produtoService.Incluir(_produtoMapper.Map(produtoViewModel), out var mensagem),
+				mensagem
+			});
 		}
 
 		public ActionResult Alterar(int codigo)
@@ -25,10 +35,13 @@ namespace WebApplication.Controllers
 		}
 
 		[HttpPost]
-		public JsonResult Incluir(ProdutoViewModel produtoViewModel)
+		public JsonResult Alterar(ProdutoViewModel produtoViewModel)
 		{
-			var produto = _produtoMapper.Map(produtoViewModel);
-			return Json(new { resultado = _produtoService.Incluir(produto, out var mensagem), mensagem});
+			return Json(new
+			{
+				resultado = _produtoService.Alterar(_produtoMapper.Map(produtoViewModel), out var mensagem),
+				mensagem
+			});
 		}
 
 		#endregion

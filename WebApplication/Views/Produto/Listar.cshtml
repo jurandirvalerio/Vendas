@@ -2,7 +2,7 @@
 
 @{
 	ViewBag.Title = "Produtos";
-	Layout = "_Layout";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Produtos</h2>
@@ -34,8 +34,8 @@
 				@produtoViewModel.PrecoVisualizacao
 			</td>
 			<td>
-				@Html.ActionLink("Alterar", "Alterar", new { id = produtoViewModel.Codigo })
-				@Html.ActionLink("Excluir", "Excluir", new { id = produtoViewModel.Codigo })
+				@Html.ActionLink("Alterar", "Alterar", new { codigo = produtoViewModel.Codigo })
+				@Html.ActionLink("Excluir", "Excluir", new { codigo = produtoViewModel.Codigo })
 			</td>
 		</tr>
 		}

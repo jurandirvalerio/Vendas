@@ -21,14 +21,38 @@ namespace Repositorios.Implementacoes
 			return _vendasContext.ProdutoSet.Single(c => c.Codigo == codigo);
 		}
 
-		public bool PodeIncluir(Produto produto)
+		public bool PodeIncluir(Produto produto, out string mensagem)
 		{
-			return ProdutoNaoExiste(produto);
+			if (ProdutoJaCadastrado(produto))
+			{
+				mensagem = "Produto já cadastrado com esta descrição";
+				return false;
+			}
+
+			mensagem = null;
+			return true;
 		}
 
-		private bool ProdutoNaoExiste(Produto produto)
+		public bool PodeAlterar(Produto produto, out string mensagem)
 		{
-			return !_vendasContext.ProdutoSet.Any(p => p.Descricao == produto.Descricao);
+			if (ProdutoNaoEncontrado(produto.Codigo))
+			{
+				mensagem = "Produto não encontrado";
+				return false;
+			}
+
+			mensagem = null;
+			return true;
+		}
+
+		private bool ProdutoNaoEncontrado(int codigo)
+		{
+			return !_vendasContext.ProdutoSet.Any(p => p.Codigo == codigo);
+		}
+
+		private bool ProdutoJaCadastrado(Produto produto)
+		{
+			return _vendasContext.ProdutoSet.Any(p => p.Descricao == produto.Descricao);
 		}
 
 		public void Alterar(Produto produto)
@@ -49,9 +73,27 @@ namespace Repositorios.Implementacoes
 			_vendasContext.SaveChanges();
 		}
 
-		public bool PodeExcluir(int codigo)
+		public bool PodeExcluir(int codigo, out string mensagem)
 		{
-			throw new System.NotImplementedException();
+			if(ProdutoNaoEncontrado(codigo))
+			{
+				mensagem = "Produto não encontrado";
+				return false;
+			}
+
+			if (ExisteVendaRelacionada(codigo))
+			{
+				mensagem = "Produto não pode ser excluído pois já foi vendido";
+				return false;
+			}
+
+			mensagem = null;
+			return true;
+		}
+
+		private bool ExisteVendaRelacionada(int codigo)
+		{
+			return _vendasContext.VendaItemSet.Any(vi => vi.CodigoProduto == codigo);
 		}
 
 		#endregion
@@ -63,6 +105,7 @@ namespace Repositorios.Implementacoes
 		#endregion
 
 		#region Construtores
+
 		public ProdutoRepository(IVendasContext vendasContext)
 		{
 			_vendasContext = vendasContext;

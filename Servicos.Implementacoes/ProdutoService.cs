@@ -36,24 +36,32 @@ namespace Servicos.Implementacoes
 
 		public bool Incluir(Produto produto, out string mensagem)
 		{
-
-			mensagem = null;
-			_produtoRepository.Incluir(produto);
-			return true;
+			if (_produtoRepository.PodeIncluir(produto, out mensagem))
+			{
+				_produtoRepository.Incluir(produto);
+				return true;
+			}
+			return false;
 		}
 
 		public bool Alterar(Produto produto, out string mensagem)
 		{
-			mensagem=null;
-			_produtoRepository.Alterar(produto);
-			return true;
+			if (_produtoRepository.PodeAlterar(produto, out mensagem))
+			{
+				_produtoRepository.Alterar(produto);
+				return true;
+			}
+			return false;
 		}
 
 		public bool Excluir(int codigo, out string mensagem)
 		{
-			mensagem = null;
-			_produtoRepository.Excluir(codigo);
-			return true;
+			if (_produtoRepository.PodeExcluir(codigo, out mensagem))
+			{
+				_produtoRepository.Excluir(codigo);
+				return true;
+			}
+			return false;
 		}
 
 		#endregion
