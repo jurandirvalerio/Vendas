@@ -44,6 +44,16 @@ namespace WebApplication.Controllers
 			});
 		}
 
+		[HttpPost]
+		public JsonResult Excluir(int codigo)
+		{
+			return Json(new
+			{
+				resultado = _produtoService.Excluir(codigo, out var mensagem),
+				mensagem
+			});
+		}
+
 		#endregion
 
 		#region Campos

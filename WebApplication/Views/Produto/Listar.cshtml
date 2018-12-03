@@ -5,6 +5,10 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section scripts {
+	@Scripts.Render("~/Scripts/Produto/listar.js")
+}
+
 <h2>Produtos</h2>
 
 <p>
@@ -26,18 +30,18 @@
 
 		@foreach (var produtoViewModel in Model)
 		{
-		<tr>
-			<td>
-				@produtoViewModel.Descricao
-			</td>
-			<td>
-				@produtoViewModel.PrecoVisualizacao
-			</td>
-			<td>
-				@Html.ActionLink("Alterar", "Alterar", new { codigo = produtoViewModel.Codigo })
-				@Html.ActionLink("Excluir", "Excluir", new { codigo = produtoViewModel.Codigo })
-			</td>
-		</tr>
+			<tr>
+				<td>
+					@produtoViewModel.Descricao
+				</td>
+				<td>
+					@produtoViewModel.PrecoVisualizacao
+				</td>
+				<td>
+					@Html.ActionLink("Alterar", "Alterar", new { codigo = produtoViewModel.Codigo })
+					<a class="excluir" href="javascript:void(0)" data-codigo="@produtoViewModel.Codigo">Excluir</a>
+				</td>
+			</tr>
 		}
 
 	</table>

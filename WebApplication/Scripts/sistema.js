@@ -19,10 +19,31 @@ sistemaJS.urlParam = function(parameter) {
 };
 
 sistemaJS.exibirMensagem = function (texto) {
+	$("html").append("<div id='dialog'></div>");
 	$("#dialog").html(texto);
 	$("#dialog").dialog({
-		close: function (event, ui) { $("#dialog").html(''); },
+		close: function (event, ui) { $("#dialog").remove(); },
 		closeOnEscape: true,
 		modal: true
 	});
 };
+
+sistemaJS.exibirPergunta = function(texto, callbackSuccess) {
+
+	$("html").append("<div id='dialog'></div>");
+	$("#dialog").html(texto);
+	$("#dialog").dialog({
+		close: function (event, ui) { $("#dialog").remove(); },
+		closeOnEscape: true,
+		modal: true,
+		buttons: {
+			"Confirmar": function () {
+				$("#dialog").remove();
+				callbackSuccess();
+			},
+			"Cancelar": function () {
+				$(this).dialog("close");
+			}
+		}
+	});
+}
