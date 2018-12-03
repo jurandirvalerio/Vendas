@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201812031716000_Inicio.cs" />
+    <Compile Include="Migrations\201812031716000_Inicio.Designer.cs">
+      <DependentUpon>201812031716000_Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendasContext.cs" />
   </ItemGroup>
@@ -68,6 +73,11 @@
       <Project>{cfaad152-2897-4293-8dc5-09e049630714}</Project>
       <Name>ObjetosNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812031716000_Inicio.resx">
+      <DependentUpon>201812031716000_Inicio.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

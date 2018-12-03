@@ -4,6 +4,7 @@
 	{
 		#region Propriedades
 
+		public int Codigo { get; set; }
 		public int CodigoVenda { get; set; }
 		public Venda Venda { get; set; }
 		public int CodigoProduto { get; set; }

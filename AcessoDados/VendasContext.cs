@@ -7,6 +7,16 @@ namespace AcessoDados
 {
 	public class VendasContext : DbContext
 	{
+		#region Construtores
+
+		public VendasContext()
+			:base("VendasContext")
+		{
+			
+		}
+
+		#endregion
+
 		#region Métodos
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
