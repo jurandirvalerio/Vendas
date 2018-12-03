@@ -143,9 +143,15 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Extensions\DecimalExtensions.cs" />
+    <Compile Include="Infrastructure\Mappers\Contratos\IProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Implementacoes\ProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Modules\Mappers\ProdutoMapperModule.cs" />
+    <Compile Include="Models\Produto\ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +177,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Produto\cadastro.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -185,11 +192,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Produto\Listar.cshtml" />
+    <Content Include="Views\Produto\Alterar.cshtml" />
+    <Content Include="Views\Produto\Incluir.cshtml" />
+    <Content Include="Views\Produto\_Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\Mappers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -216,6 +225,10 @@
     <ProjectReference Include="..\Repositorio.Modules\Repositorios.Modules.csproj">
       <Project>{a694ef77-92d5-4937-8221-70c85606559b}</Project>
       <Name>Repositorios.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servicos.Contratos\Servicos.Contratos.csproj">
+      <Project>{79E82878-25EF-4526-B165-87EA277B2A35}</Project>
+      <Name>Servicos.Contratos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Servicos.Module\Servicos.Modules.csproj">
       <Project>{c8ba6352-63a8-43ad-9f6b-bd7d98a39330}</Project>

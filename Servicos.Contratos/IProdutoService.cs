@@ -9,9 +9,9 @@ namespace Servicos.Contratos
 
 		List<Produto> Listar();
 		Produto Obter(int codigo);
-		void Incluir(Produto produto);
-		void Alterar(Produto produto);
-		void Excluir(int codigo);
+		bool Incluir(Produto produto, out string mensagem);
+		bool Alterar(Produto produto, out string mensagem);
+		bool Excluir(int codigo, out string mensagem);
 
 		#endregion
 	}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication.Models.Produto.ProdutoViewModel>
+
+@{
+	ViewBag.Title = "Produtos";
+	Layout = "_Layout";
+}
+
+<h2>Produtos</h2>
+
+<p>
+	@Html.ActionLink("Cadastrar novo produto", "Incluir")
+</p>
+
+@if (Model.Any())
+{
+	<table class="table table-hover">
+		<tr>
+			<th>
+				Descrição
+			</th>
+			<th>
+				Preço
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var produtoViewModel in Model)
+		{
+		<tr>
+			<td>
+				@produtoViewModel.Descricao
+			</td>
+			<td>
+				@produtoViewModel.PrecoVisualizacao
+			</td>
+			<td>
+				@Html.ActionLink("Alterar", "Alterar", new { id = produtoViewModel.Codigo })
+				@Html.ActionLink("Excluir", "Excluir", new { id = produtoViewModel.Codigo })
+			</td>
+		</tr>
+		}
+
+	</table>
+}
+else
+{
+	<p>Não há produtos cadastrados</p>
+}

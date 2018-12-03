@@ -10,8 +10,10 @@ namespace Repositorios.Contratos
 		List<Produto> Listar();
 		Produto Obter(int codigo);
 		void Incluir(Produto produto);
+		bool PodeIncluir(Produto produto);
 		void Alterar(Produto produto);
 		void Excluir(int codigo);
+		bool PodeExcluir(int codigo);
 
 		#endregion
 	}

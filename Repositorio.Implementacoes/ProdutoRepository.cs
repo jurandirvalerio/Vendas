@@ -21,6 +21,16 @@ namespace Repositorios.Implementacoes
 			return _vendasContext.ProdutoSet.Single(c => c.Codigo == codigo);
 		}
 
+		public bool PodeIncluir(Produto produto)
+		{
+			return ProdutoNaoExiste(produto);
+		}
+
+		private bool ProdutoNaoExiste(Produto produto)
+		{
+			return !_vendasContext.ProdutoSet.Any(p => p.Descricao == produto.Descricao);
+		}
+
 		public void Alterar(Produto produto)
 		{
 			_vendasContext.Entry(produto).State = EntityState.Modified;
@@ -37,6 +47,11 @@ namespace Repositorios.Implementacoes
 		{
 			_vendasContext.ProdutoSet.Remove(Obter(codigo));
 			_vendasContext.SaveChanges();
+		}
+
+		public bool PodeExcluir(int codigo)
+		{
+			throw new System.NotImplementedException();
 		}
 
 		#endregion

@@ -34,19 +34,26 @@ namespace Servicos.Implementacoes
 			return _produtoRepository.Obter(codigo);
 		}
 
-		public void Incluir(Produto produto)
+		public bool Incluir(Produto produto, out string mensagem)
 		{
+
+			mensagem = null;
 			_produtoRepository.Incluir(produto);
+			return true;
 		}
 
-		public void Alterar(Produto produto)
+		public bool Alterar(Produto produto, out string mensagem)
 		{
+			mensagem=null;
 			_produtoRepository.Alterar(produto);
+			return true;
 		}
 
-		public void Excluir(int codigo)
+		public bool Excluir(int codigo, out string mensagem)
 		{
+			mensagem = null;
 			_produtoRepository.Excluir(codigo);
+			return true;
 		}
 
 		#endregion
