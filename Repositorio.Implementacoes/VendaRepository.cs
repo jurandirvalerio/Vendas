@@ -26,8 +26,18 @@ namespace Repositorios.Implementacoes
 
 		public bool PodeIncluir(Venda venda, out string mensagem)
 		{
+			if (VendaNaoTemProdutos(venda))
+			{
+				mensagem = "Venda sem itens";
+				return false;
+			}
 			mensagem = null;
 			return true;
+		}
+
+		private bool VendaNaoTemProdutos(Venda venda)
+		{
+			return venda.VendaItemSet.Count == 0;
 		}
 
 		public bool PodeAlterar(Venda venda, out string mensagem)
