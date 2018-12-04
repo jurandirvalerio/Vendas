@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication.Models.Cliente.ClienteViewModel>
+
+@{
+	ViewBag.Title = "Clientes";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+	@Scripts.Render("~/Scripts/Cliente/listar.js")
+}
+
+<h2>Clientes</h2>
+
+<p>
+	@Html.ActionLink("Cadastrar novo cliente", "Incluir")
+</p>
+
+@if (Model.Any())
+{
+	<table class="table table-hover">
+		<tr>
+			<th>
+				Nome
+			</th>
+			<th>
+				Data de nascimento
+			</th>
+			<th>
+				E-mail
+			</th>
+			<th>
+				Telefone
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var clienteViewModel in Model)
+		{
+		<tr>
+			<td>
+				@clienteViewModel.Nome
+			</td>
+			<td>
+				@clienteViewModel.DataNascimento.ToShortDateString()
+			</td>
+			<td>
+				@clienteViewModel.Email
+			</td>
+			<td>
+				@clienteViewModel.Telefone
+			</td>
+			<td>
+				@Html.ActionLink("Alterar", "Alterar", new { codigo = clienteViewModel.Codigo })
+				<a class="excluir" href="javascript:void(0)" data-codigo="@clienteViewModel.Codigo">Excluir</a>
+			</td>
+		</tr>
+		}
+
+	</table>
+}
+else
+{
+	<p>Não há clientes cadastrados</p>
+}

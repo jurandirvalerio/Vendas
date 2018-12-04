@@ -8,6 +8,8 @@ namespace WebApplication.Infrastructure.Mappers.Implementacoes
 {
 	public class ProdutoMapper : IProdutoMapper
 	{
+		#region Métodos
+
 		public Produto Map(ProdutoViewModel produtoViewModel)
 		{
 			return new Produto
@@ -32,5 +34,7 @@ namespace WebApplication.Infrastructure.Mappers.Implementacoes
 		{
 			return produtoSet.Select(Map);
 		}
+
+		#endregion
 	}
 }

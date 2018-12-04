@@ -9,9 +9,9 @@ namespace Servicos.Contratos
 
 		List<Cliente> Listar();
 		Cliente Obter(int codigo);
-		void Incluir(Cliente cliente);
-		void Alterar(Cliente cliente);
-		void Excluir(int codigo);
+		bool Incluir(Cliente cliente, out string mensagem);
+		bool Alterar(Cliente cliente, out string mensagem);
+		bool Excluir(int codigo, out string mensagem);
 
 		#endregion
 	}

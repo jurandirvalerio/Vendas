@@ -34,20 +34,35 @@ namespace Servicos.Implementacoes
 			return _clienteRepository.Obter(codigo);
 		}
 
-		public void Excluir(int codigo)
+		public bool Incluir(Cliente cliente, out string mensagem)
 		{
-			_clienteRepository.Excluir(codigo);
+			if (_clienteRepository.PodeIncluir(cliente, out mensagem))
+			{
+				_clienteRepository.Incluir(cliente);
+				return true;
+			}
+			return false;
 		}
 
-		public void Alterar(Cliente cliente)
+		public bool Alterar(Cliente cliente, out string mensagem)
 		{
-			_clienteRepository.Alterar(cliente);
+			if (_clienteRepository.PodeAlterar(cliente, out mensagem))
+			{
+				_clienteRepository.Alterar(cliente);
+				return true;
+			}
+			return false;
 		}
 
-		public void Incluir(Cliente cliente)
+		public bool Excluir(int codigo, out string mensagem)
 		{
-			_clienteRepository.Incluir(cliente);
-		} 
+			if (_clienteRepository.PodeExcluir(codigo, out mensagem))
+			{
+				_clienteRepository.Excluir(codigo);
+				return true;
+			}
+			return false;
+		}
 
 		#endregion
 	}

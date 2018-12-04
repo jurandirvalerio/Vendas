@@ -155,14 +155,19 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Extensions\DecimalExtensions.cs" />
+    <Compile Include="Infrastructure\Mappers\Contratos\IClienteMapper.cs" />
     <Compile Include="Infrastructure\Mappers\Contratos\IProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Implementacoes\ClienteMapper.cs" />
     <Compile Include="Infrastructure\Mappers\Implementacoes\ProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Modules\Mappers\ClienteMapperModule.cs" />
     <Compile Include="Infrastructure\Modules\Mappers\ProdutoMapperModule.cs" />
+    <Compile Include="Models\Cliente\ClienteViewModel.cs" />
     <Compile Include="Models\Produto\ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,6 +194,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Cliente\cadastro.js" />
+    <Content Include="Scripts\Cliente\listar.js" />
     <Content Include="Scripts\Produto\cadastro.js" />
     <Content Include="Scripts\Produto\listar.js" />
     <Content Include="Scripts\sistema.js" />
@@ -210,6 +217,10 @@
     <Content Include="Views\Produto\Alterar.cshtml" />
     <Content Include="Views\Produto\Incluir.cshtml" />
     <Content Include="Views\Produto\_Cadastro.cshtml" />
+    <Content Include="Views\Cliente\_Cadastro.cshtml" />
+    <Content Include="Views\Cliente\Alterar.cshtml" />
+    <Content Include="Views\Cliente\Incluir.cshtml" />
+    <Content Include="Views\Cliente\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

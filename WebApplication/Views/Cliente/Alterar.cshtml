@@ -1,0 +1,14 @@
+﻿@model WebApplication.Models.Cliente.ClienteViewModel
+
+@{
+	ViewBag.Title = "Cliente";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+	@Scripts.Render("~/Scripts/Cliente/cadastro.js")
+}
+
+<h2>Alterar cliente</h2>
+
+@Html.Partial("_Cadastro", Model)
