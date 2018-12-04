@@ -1,0 +1,8 @@
+﻿.nomeCliente {
+	width: 300px;
+}
+
+.nomeCliente,
+.selecaoCliente {
+	display: inline-block;
+}

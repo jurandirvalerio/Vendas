@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication.Models.Venda.VendaViewModel>
+
+@{
+	ViewBag.Title = "Vendas";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+	@Scripts.Render("~/Scripts/Venda/listar.js")
+}
+
+<h2>Vendas</h2>
+
+<p>
+	@Html.ActionLink("Cadastrar nova venda", "Incluir")
+</p>
+
+@if (Model.Any())
+{
+	<table class="table table-hover">
+		<tr>
+			<th>
+				Cliente
+			</th>
+			<th>
+				Total
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var vendaViewModel in Model)
+		{
+		<tr>
+			<td>
+				@vendaViewModel.NomeCliente
+			</td>
+			<td>
+				@vendaViewModel.TotalVisualizacao
+			</td>
+			<td>
+				@Html.ActionLink("Alterar", "Alterar", new { codigo = vendaViewModel.Codigo })
+				<a class="excluir" href="javascript:void(0)" data-codigo="@vendaViewModel.Codigo">Excluir</a>
+			</td>
+		</tr>
+		}
+
+	</table>
+}
+else
+{
+	<p>Não há vendas cadastrados</p>
+}

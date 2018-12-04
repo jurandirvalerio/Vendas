@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IVendaService.cs" />
     <Compile Include="IClienteService.cs" />
     <Compile Include="IProdutoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

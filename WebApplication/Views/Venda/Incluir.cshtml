@@ -1,0 +1,18 @@
+﻿@model WebApplication.Models.Venda.VendaViewModel
+
+@{
+	ViewBag.Title = "Venda";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+	@Styles.Render("~/Content/Venda/venda.css")
+}
+
+@section scripts {
+	@Scripts.Render("~/Scripts/Venda/cadastro.js")
+}
+
+<h2>Incluir venda</h2>
+
+@Html.Partial("_Cadastro", Model)

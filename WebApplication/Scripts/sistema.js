@@ -28,6 +28,18 @@ sistemaJS.exibirMensagem = function (texto) {
 	});
 };
 
+sistemaJS.exibirModal = function (html) {
+	$("html").append("<div id='dialog'></div>");
+	$("#dialog").html(html);
+	$("#dialog").dialog({
+		close: function (event, ui) { $("#dialog").remove(); },
+		closeOnEscape: true,
+		modal: true,
+		height: 400,
+		width: 600
+	});
+};
+
 sistemaJS.exibirPergunta = function(texto, callbackSuccess) {
 
 	$("html").append("<div id='dialog'></div>");

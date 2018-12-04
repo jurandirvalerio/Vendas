@@ -7,6 +7,7 @@
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	@RenderSection("styles", required: false)
 </head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,11 +18,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				@Html.ActionLink("Sistema de vendas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+				@Html.ActionLink("Sistema de vendas", "Listar", "Venda", new { area = "" }, new { @class = "navbar-brand" })
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
+					<li>@Html.ActionLink("Vendas", "Listar", "Venda")</li>
 					<li>@Html.ActionLink("Produtos", "Listar", "Produto")</li>
 					<li>@Html.ActionLink("Clientes", "Listar", "Cliente")</li>
 				</ul>

@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VendaRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="ProdutoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

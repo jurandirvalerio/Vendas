@@ -154,21 +154,29 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\VendaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Extensions\DecimalExtensions.cs" />
     <Compile Include="Infrastructure\Mappers\Contratos\IClienteMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Contratos\IItemVendaMapper.cs" />
     <Compile Include="Infrastructure\Mappers\Contratos\IProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Contratos\IVendaMapper.cs" />
     <Compile Include="Infrastructure\Mappers\Implementacoes\ClienteMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Implementacoes\ItemVendaMapper.cs" />
     <Compile Include="Infrastructure\Mappers\Implementacoes\ProdutoMapper.cs" />
+    <Compile Include="Infrastructure\Mappers\Implementacoes\VendaMapper.cs" />
     <Compile Include="Infrastructure\Modules\Mappers\ClienteMapperModule.cs" />
+    <Compile Include="Infrastructure\Modules\Mappers\ItemVendaMapperModule.cs" />
     <Compile Include="Infrastructure\Modules\Mappers\ProdutoMapperModule.cs" />
+    <Compile Include="Infrastructure\Modules\Mappers\VendaMapperModule.cs" />
     <Compile Include="Models\Cliente\ClienteViewModel.cs" />
     <Compile Include="Models\Produto\ProdutoViewModel.cs" />
+    <Compile Include="Models\Venda\ItemVendaViewModel.cs" />
+    <Compile Include="Models\Venda\VendaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +184,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Venda\venda.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -196,6 +205,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Cliente\cadastro.js" />
     <Content Include="Scripts\Cliente\listar.js" />
+    <Content Include="Scripts\Venda\cadastro.js" />
+    <Content Include="Scripts\Venda\listar.js" />
     <Content Include="Scripts\Produto\cadastro.js" />
     <Content Include="Scripts\Produto\listar.js" />
     <Content Include="Scripts\sistema.js" />
@@ -210,9 +221,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Produto\Listar.cshtml" />
     <Content Include="Views\Produto\Alterar.cshtml" />
     <Content Include="Views\Produto\Incluir.cshtml" />
@@ -221,6 +229,10 @@
     <Content Include="Views\Cliente\Alterar.cshtml" />
     <Content Include="Views\Cliente\Incluir.cshtml" />
     <Content Include="Views\Cliente\Listar.cshtml" />
+    <Content Include="Views\Venda\_Cadastro.cshtml" />
+    <Content Include="Views\Venda\Alterar.cshtml" />
+    <Content Include="Views\Venda\Incluir.cshtml" />
+    <Content Include="Views\Venda\Listar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
