@@ -13,7 +13,6 @@ namespace AcessoDados.Implementacoes
 		public VendasContext()
 			:base("VendasContext")
 		{
-			
 		}
 
 		#endregion

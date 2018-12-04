@@ -9,7 +9,7 @@ vendaJS.PRECO_PRODUTO = "#precoProduto";
 vendaJS.QUANTIDADE_PRODUTO = "#quantidadeProduto";
 vendaJS.TABLE_BODY = "#itensVenda > tbody";
 
-vendaJS.TEMPLATE_LINHA = "<tr data-guid='{5}'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td><a class='excluirItemVenda' href='javascript: void (0)' data-codigo='{4} data-guid='{5}'>Excluir</a></td></tr>";
+vendaJS.TEMPLATE_LINHA = "<tr data-codigo='{4}' data-quantidade='{2}' data-preco='{1}'><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td><a class='excluirItemVenda' href='javascript: void (0)' data-codigo='{4} data-guid='{5}'>Excluir</a></td></tr>";
 
 vendaJS.selecionouCliente = function(e) {
 	$(vendaJS.ID_CODIGO_CLIENTE).val($(e.currentTarget).data('codigo'));
@@ -76,12 +76,12 @@ vendaJS.adicionarProduto = function () {
 
 	var _obterLinhaTemplateItemVenda = function() {
 		var linha = vendaJS.TEMPLATE_LINHA;
-		linha = linha.replace('{0}', $(vendaJS.DESCRICAO_PRODUTO).val());
-		linha = linha.replace('{1}', $(vendaJS.PRECO_PRODUTO).val());
-		linha = linha.replace('{2}', $(vendaJS.QUANTIDADE_PRODUTO).val());
-		linha = linha.replace('{3}', _calcularTotalLinha());
-		linha = linha.replace('{4}', $(vendaJS.ID_CODIGO_PRODUTO).val());
-		linha = linha.replace('{5}', $(sistemaJS.guid()).val());
+		linha = linha.replaceAll('{0}', $(vendaJS.DESCRICAO_PRODUTO).val());
+		linha = linha.replaceAll('{1}', $(vendaJS.PRECO_PRODUTO).val());
+		linha = linha.replaceAll('{2}', $(vendaJS.QUANTIDADE_PRODUTO).val());
+		linha = linha.replaceAll('{3}', _calcularTotalLinha());
+		linha = linha.replaceAll('{4}', $(vendaJS.ID_CODIGO_PRODUTO).val());
+		linha = linha.replaceAll('{5}', $(sistemaJS.guid()).val());
 		return linha;
 	};
 
@@ -105,6 +105,21 @@ vendaJS.semClienteSelecionado = function() {
 	return $(vendaJS.ID_CODIGO_CLIENTE).val() === '0';
 };
 
+vendaJS.obterItensVenda = function() {
+	var itensVenda = [];
+
+	var linhas = $(vendaJS.TABLE_BODY + '> tr');
+	for (var i = 0; i < linhas.length; i++) {
+		itensVenda.push({
+			CodigoProduto: linhas[i].attributes['data-codigo'].value,
+			PrecoUnitario: linhas[i].attributes['data-preco'].value,
+			Quantidade: linhas[i].attributes['data-quantidade'].value
+		});
+	}
+
+	return itensVenda;
+};
+
 vendaJS.salvar = function () {
 
 	if (vendaJS.semClienteSelecionado()) {
@@ -117,20 +132,13 @@ vendaJS.salvar = function () {
 		return;
 	}
 
-	var _codigo = sistemaJS.urlParam("codigo");
-	var _inclusao = _codigo === null;
-	var _urlCadastro = _inclusao ? "incluir" : "alterar";
-
-	var _urlCompletaCadastro = serviceBaseUrl + vendaJS.CONTROLLER + _urlCadastro;
+	var _urlCompletaCadastro = serviceBaseUrl + vendaJS.CONTROLLER + "incluir";
 
 	var _preencherVenda = function () {
-		var venda = {
-			Descricao: $("#descricao").val(),
-			PrecoSugerido: $(vendaJS.ID_PRECO_SUGERIDO).val()
+		return {
+			CodigoCliente: $(vendaJS.ID_CODIGO_CLIENTE).val(),
+			ItemVendaViewModelSet: vendaJS.obterItensVenda()
 		};
-
-		if (!_inclusao) { venda.Codigo = _codigo; }
-		return venda;
 	};
 
 	var _done = function(data) {

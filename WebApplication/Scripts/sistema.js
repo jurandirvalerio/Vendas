@@ -74,3 +74,8 @@ sistemaJS.guid = function () {
 	}
 	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
+String.prototype.replaceAll = function (search, replacement) {
+	var target = this;
+	return target.split(search).join(replacement);
+};

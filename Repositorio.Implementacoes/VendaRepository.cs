@@ -13,10 +13,12 @@ namespace Repositorios.Implementacoes
 
 		public List<Venda> Listar()
 		{
-			return _vendasContext.VendaSet
-				.Include(v => v.Cliente)
-				.Include(v => v.VendaItemSet.Select(vi => vi.Produto))
+			var vendas = _vendasContext.VendaSet
+				.Include(v => v.VendaItemSet.Select(vi => vi.Venda.Cliente))
 				.ToList();
+
+			vendas.ForEach(v => v.Cliente = _vendasContext.ClienteSet.Find(v.CodigoCliente));
+			return vendas;
 		}
 
 		public Venda Obter(int codigo)

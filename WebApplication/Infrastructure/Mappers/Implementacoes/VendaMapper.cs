@@ -41,7 +41,7 @@ namespace WebApplication.Infrastructure.Mappers.Implementacoes
 			{
 				Codigo = venda.Codigo,
 				CodigoCliente = venda.CodigoCliente,
-				NomeCliente = venda?.Cliente.Nome,
+				NomeCliente = venda?.Cliente?.Nome,
 				Total = venda.VendaItemSet.Sum(v => v.PrecoUnitario * v.Quantidade)
 			};
 		}
