@@ -13,64 +13,80 @@
 	</div>
 
 	<hr />
-
-	<div class="form-group">
-		<label class="col-md-12">Produto</label>
-		<div class="col-md-12">
-			<input id="codigoProduto" type="hidden" />
-			<input id="descricaoProduto" type="text" class="form-control nomeProduto" readonly="readonly" />
-			<a id="selecionarProduto" title="Selecionar produto" class="selecionarButton selecaoProduto" href="javascript:void(0)"><i class="glyphicon glyphicon-list-alt"></i></a>
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="form-group">
+				<div class="col-md-12">
+					<label>Produto</label>
+				</div>
+				<div class="col-md-12">
+					<input id="codigoProduto" type="hidden" />
+					<input id="descricaoProduto" type="text" class="form-control nomeProduto" readonly="readonly" />
+					<a id="selecionarProduto" title="Selecionar produto" class="selecionarButton selecaoProduto" href="javascript:void(0)"><i class="glyphicon glyphicon-list-alt"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="form-group">
+				<div class="col-md-12">
+					<label>Valor</label>
+				</div>
+				<div class="col-md-12">
+					<input id="precoProduto" type="text" class="form-control valorProduto"/>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="form-group">
+				<div class="col-md-12">
+					<label>Quantidade</label>
+				</div>
+				<div class="col-md-12">
+					<input id="quantidadeProduto" type="number" class="form-control quantidadeProduto" />
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="form-group">
+				<div class="col-md-12">
+					<button id="adicionarProduto" type="button" class="btn btn-info">
+						<span class="glyphicon glyphicon-plus"></span> Adicionar
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="form-group">
-		<label class="col-md-12">Valor</label>
-		<div class="col-md-12">
-			<input id="precoProduto" type="text" class="form-control valorProduto" />
+		<hr />
+
+		<table class="table table-hover table-striped" id="itensVenda">
+			<thead>
+				<tr>
+					<th>
+						Produto
+					</th>
+					<th>
+						Valor unitário
+					</th>
+					<th>
+						Quantidade
+					</th>
+					<th>
+						Valor total
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<div class="form-group">
+			<div class="col-md-12">
+				<input type="submit" id="salvar" value="Salvar" class="btn btn-default btn-success" />
+			</div>
 		</div>
 	</div>
-
-	<div class="form-group">
-		<label class="col-md-12">Quantidade</label>
-		<div class="col-md-12">
-			<input id="quantidadeProduto" type="number" class="form-control quantidadeProduto" />
-			<button id="adicionarProduto" type="button" class="btn btn-info">
-				<span class="glyphicon glyphicon-plus"></span> Adicionar
-			</button>
-		</div>
-	</div>
-
-	<hr />
-
-	<table class="table table-hover table-striped" id="itensVenda">
-		<thead>
-		<tr>
-			<th>
-				Produto
-			</th>
-			<th>
-				Valor unitário
-			</th>
-			<th>
-				Quantidade
-			</th>
-			<th>
-				Valor total
-			</th>
-			<th></th>
-		</tr>
-		</thead>
-		<tbody>
-			
-		</tbody>
-	</table>
-
-	<div class="form-group">
-		<div class="col-md-12">
-			<input type="submit" id="salvar" value="Salvar" class="btn btn-default btn-success" />
-		</div>
-	</div>
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
