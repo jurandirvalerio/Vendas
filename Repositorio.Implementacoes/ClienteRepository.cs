@@ -83,7 +83,7 @@ namespace Repositorios.Implementacoes
 
 			if (ExisteVendaRelacionada(codigo))
 			{
-				mensagem = "Cliente não pode ser excluído pois já foi vendido";
+				mensagem = "Cliente não pode ser excluído pois já fez uma compra";
 				return false;
 			}
 
