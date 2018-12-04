@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication.Models.Produto.ProdutoViewModel>
+@{
+	Layout = null;
+}
+
+<p>
+	<h2>Selecionar produto</h2>
+</p>
+<table class="table table-striped">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Descricao)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.PrecoVisualizacao)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var produtoViewModel in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => produtoViewModel.Descricao)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => produtoViewModel.PrecoVisualizacao)
+		</td>
+		<td>
+			<a href="javascrip:void(0)" class="selecionouProduto" data-codigo="@produtoViewModel.Codigo" data-descricao="@produtoViewModel.Descricao" data-preco="@produtoViewModel.PrecoSugerido">Selecionar</a>
+		</td>
+	</tr>
+	}
+</table>

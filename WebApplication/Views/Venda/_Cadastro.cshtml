@@ -7,10 +7,35 @@
 		@Html.LabelFor(model => model.NomeCliente, new { @class = "col-md-12" })
 		<div class="col-md-12">
 			<input id="codigoCliente" type="hidden" value="@Model.CodigoCliente" />
-			<input id="nomeCliente" type="text" class="form-control nomeCliente" value="@Model.NomeCliente" readonly="readonly"/>
-			<a id="selecionarCliente" class="selecaoCliente" href="javascript:void(0)">Selecionar cliente</a>
+			<input id="nomeCliente" type="text" class="form-control nomeCliente" value="@Model.NomeCliente" readonly="readonly" />
+			<a id="selecionarCliente" title="Selecionar cliente" class="selecionarButton selecaoCliente" href="javascript:void(0)"><i class="glyphicon glyphicon-list-alt"></i></a>
 		</div>
 	</div>
+
+	<hr />
+
+	<div class="form-group">
+		<label class="col-md-12">Produto</label>
+		<div class="col-md-12">
+			<input id="codigoProduto" type="hidden" />
+			<input id="descricaoProduto" type="text" class="form-control nomeProduto" readonly="readonly" />
+			<a id="selecionarProduto" title="Selecionar produto" class="selecionarButton selecaoProduto" href="javascript:void(0)"><i class="glyphicon glyphicon-list-alt"></i></a>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-12">Valor</label>
+		<div class="col-md-12">
+			<input id="precoProduto" type="text" class="form-control valorProduto"/>
+			<button id="adicionarProduto" type="button" class="btn btn-info">
+				<span class="glyphicon glyphicon-plus"></span> Adicionar
+			</button>
+		</div>
+	</div>
+
+	<hr />
+	
+
 
 	<div class="form-group">
 		<div class="col-md-12">
