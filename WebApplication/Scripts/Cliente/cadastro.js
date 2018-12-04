@@ -4,24 +4,26 @@ clienteJS.CONTROLLER = "/cliente/";
 clienteJS.ID_EMAIL = "#email";
 clienteJS.ID_TELEFONE = "#telefone";
 clienteJS.ID_DATA = "#dataNascimento";
+clienteJS.ID_NOME = "#nome";
 
 clienteJS.salvar = function () {
 
 	var _codigo = sistemaJS.urlParam("codigo");
 	var _inclusao = _codigo === null;
+	var _alteracao = !_inclusao;
 	var _urlCadastro = _inclusao ? "incluir" : "alterar";
 
 	var _urlCompletaCadastro = serviceBaseUrl + clienteJS.CONTROLLER + _urlCadastro;
 
 	var _preencherCliente = function () {
 		var cliente = {
-			Nome: $("#nome").val(),
+			Nome: $(clienteJS.ID_NOME).val(),
 			Email: $(clienteJS.ID_EMAIL).val(),
 			Telefone: $(clienteJS.ID_TELEFONE).val(),
 			DataNascimento: $(clienteJS.ID_DATA).val()
 		};
 
-		if (!_inclusao) { cliente.Codigo = _codigo; }
+		if (_alteracao) { cliente.Codigo = _codigo; }
 		return cliente;
 	};
 
