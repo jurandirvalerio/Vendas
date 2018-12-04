@@ -9,6 +9,23 @@ namespace Repositorios.Implementacoes
 {
 	public class ClienteRepository : IClienteRepository
 	{
+		#region Campos
+
+		private readonly IVendasContext _vendasContext;
+		private readonly IClienteValidator _clienteValidator;
+
+		#endregion
+
+		#region Construtores
+
+		public ClienteRepository(IVendasContext vendasContext, IClienteValidator clienteValidator)
+		{
+			_vendasContext = vendasContext;
+			_clienteValidator = clienteValidator;
+		}
+
+		#endregion
+
 		#region Métodos
 
 		public List<Cliente> Listar()
@@ -23,14 +40,7 @@ namespace Repositorios.Implementacoes
 
 		public bool PodeIncluir(Cliente cliente, out string mensagem)
 		{
-			if (ClienteJaCadastrado(cliente))
-			{
-				mensagem = "Cliente já cadastrado com este nome";
-				return false;
-			}
-
-			mensagem = null;
-			return true;
+			return _clienteValidator.PodeIncluir(cliente, out mensagem);
 		}
 
 		public bool PodeAlterar(Cliente cliente, out string mensagem)
@@ -48,11 +58,6 @@ namespace Repositorios.Implementacoes
 		private bool ClienteNaoEncontrado(int codigo)
 		{
 			return !_vendasContext.ClienteSet.Any(p => p.Codigo == codigo);
-		}
-
-		private bool ClienteJaCadastrado(Cliente cliente)
-		{
-			return _vendasContext.ClienteSet.Any(p => p.Nome == cliente.Nome);
 		}
 
 		public void Alterar(Cliente cliente)
@@ -94,21 +99,6 @@ namespace Repositorios.Implementacoes
 		private bool ExisteVendaRelacionada(int codigo)
 		{
 			return _vendasContext.VendaSet.Any(v => v.CodigoCliente == codigo);
-		}
-
-		#endregion
-
-		#region Campos
-
-		private readonly IVendasContext _vendasContext;
-
-		#endregion
-
-		#region Construtores
-
-		public ClienteRepository(IVendasContext vendasContext)
-		{
-			_vendasContext = vendasContext;
 		}
 
 		#endregion

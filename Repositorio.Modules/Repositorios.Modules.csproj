@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteRepositoryModule.cs" />
+    <Compile Include="ClienteValidatorModule.cs" />
     <Compile Include="ProdutoRepositoryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VendaRepositoryModule.cs" />

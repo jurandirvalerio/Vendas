@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteValidator.cs" />
+    <Compile Include="ClienteValidatorCustom.cs" />
     <Compile Include="VendaRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="ProdutoRepository.cs" />
