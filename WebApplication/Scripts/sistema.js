@@ -40,6 +40,11 @@ sistemaJS.exibirModal = function (html) {
 	});
 };
 
+sistemaJS.fecharModal = function() {
+	$("#dialog").dialog("close");
+	$("#dialog").remove();
+};
+
 sistemaJS.exibirPergunta = function(texto, callbackSuccess) {
 
 	$("html").append("<div id='dialog'></div>");

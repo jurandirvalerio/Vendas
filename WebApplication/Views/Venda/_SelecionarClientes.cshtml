@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication.Models.Cliente.ClienteViewModel>
+@{
+	Layout = null;
+}
+
+<p>
+	<h2>Selecionar cliente</h2>
+</p>
+<table class="table table-striped">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Nome)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var clienteViewModel in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => clienteViewModel.Nome)
+			</td>
+			<td>
+				<a href="javascrip:void(0)" class="selecionouCliente" data-codigo="@clienteViewModel.Codigo" data-nome="@clienteViewModel.Nome">Selecionar</a>
+			</td>
+		</tr>
+	}
+</table>

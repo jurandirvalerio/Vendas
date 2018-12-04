@@ -6,8 +6,8 @@
 	<div class="form-group">
 		@Html.LabelFor(model => model.NomeCliente, new { @class = "col-md-12" })
 		<div class="col-md-12">
-			<input type="hidden" value="@Model.CodigoCliente" />
-			<input type="text" class="form-control nomeCliente" value="@Model.NomeCliente" readonly="readonly"/>
+			<input id="codigoCliente" type="hidden" value="@Model.CodigoCliente" />
+			<input id="nomeCliente" type="text" class="form-control nomeCliente" value="@Model.NomeCliente" readonly="readonly"/>
 			<a id="selecionarCliente" class="selecaoCliente" href="javascript:void(0)">Selecionar cliente</a>
 		</div>
 	</div>

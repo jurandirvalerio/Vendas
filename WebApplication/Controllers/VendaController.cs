@@ -14,6 +14,11 @@ namespace WebApplication.Controllers
 			return View(_vendaMapper.Map(_vendaService.Listar()));
 		}
 
+		public ActionResult SelecionarClientes()
+		{
+			return View("_SelecionarClientes", _clienteMapper.Map(_clienteService.Listar()));
+		}
+
 		public ActionResult Incluir()
 		{
 			return View(new VendaViewModel());
@@ -60,15 +65,21 @@ namespace WebApplication.Controllers
 
 		private readonly IVendaMapper _vendaMapper;
 		private readonly IVendaService _vendaService;
+		private readonly IClienteService _clienteService;
+		private readonly IClienteMapper _clienteMapper;
+
 
 		#endregion
 
 		#region Construtores
 
-		public VendaController(IVendaMapper vendaMapper, IVendaService vendaService)
+		public VendaController(IVendaMapper vendaMapper, IVendaService vendaService, IClienteService clienteService,
+			IClienteMapper clienteMapper)
 		{
 			_vendaMapper = vendaMapper;
 			_vendaService = vendaService;
+			_clienteService = clienteService;
+			_clienteMapper = clienteMapper;
 		}
 
 		#endregion

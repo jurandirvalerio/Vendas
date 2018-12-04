@@ -233,6 +233,7 @@
     <Content Include="Views\Venda\Alterar.cshtml" />
     <Content Include="Views\Venda\Incluir.cshtml" />
     <Content Include="Views\Venda\Listar.cshtml" />
+    <Content Include="Views\Venda\_SelecionarClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

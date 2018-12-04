@@ -1,11 +1,23 @@
 ﻿var vendaJS = vendaJS || {};
 
-vendaJS.ID_PRECO_SUGERIDO = "#precoSugerido";
+vendaJS.ID_CODIGO_CLIENTE = "#codigoCliente";
+vendaJS.NOME_CLIENTE = "#nomeCliente";
 vendaJS.CONTROLLER = "/venda/";
 
-vendaJS.selecionarCliente = function() {
-	
-	sistemaJS.exibirModal('<b>teste</b>');
+vendaJS.selecionouCliente = function(e) {
+	$(vendaJS.ID_CODIGO_CLIENTE).val($(e.currentTarget).data('codigo'));
+	$(vendaJS.NOME_CLIENTE).val($(e.currentTarget).data('nome'));
+	sistemaJS.fecharModal();
+};
+
+vendaJS.selecionarCliente = function () {
+
+	var _montarModal = function (html) {
+		sistemaJS.exibirModal(html);
+		vendaJS.atribuirEventosModalClientes();
+	};
+
+	$.get(serviceBaseUrl + vendaJS.CONTROLLER + 'selecionarClientes').done(_montarModal);
 };
 
 vendaJS.salvar = function () {
@@ -40,6 +52,10 @@ vendaJS.salvar = function () {
 vendaJS.atribuirEventos = function() {
 	$("#selecionarCliente").click(vendaJS.selecionarCliente);
 	$("#salvar").click(vendaJS.salvar);
+};
+
+vendaJS.atribuirEventosModalClientes = function() {
+	$('.selecionouCliente').click(vendaJS.selecionouCliente);
 };
 
 vendaJS.atribuirMascaras = function() {
