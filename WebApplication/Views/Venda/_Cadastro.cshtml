@@ -26,7 +26,14 @@
 	<div class="form-group">
 		<label class="col-md-12">Valor</label>
 		<div class="col-md-12">
-			<input id="precoProduto" type="text" class="form-control valorProduto"/>
+			<input id="precoProduto" type="text" class="form-control valorProduto" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-12">Quantidade</label>
+		<div class="col-md-12">
+			<input id="quantidadeProduto" type="number" class="form-control quantidadeProduto" />
 			<button id="adicionarProduto" type="button" class="btn btn-info">
 				<span class="glyphicon glyphicon-plus"></span> Adicionar
 			</button>
@@ -34,8 +41,29 @@
 	</div>
 
 	<hr />
-	
 
+	<table class="table table-hover table-striped" id="itensVenda">
+		<thead>
+		<tr>
+			<th>
+				Produto
+			</th>
+			<th>
+				Valor unitário
+			</th>
+			<th>
+				Quantidade
+			</th>
+			<th>
+				Valor total
+			</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
 
 	<div class="form-group">
 		<div class="col-md-12">

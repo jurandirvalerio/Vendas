@@ -24,7 +24,8 @@ sistemaJS.exibirMensagem = function (texto) {
 	$("#dialog").dialog({
 		close: function (event, ui) { $("#dialog").remove(); },
 		closeOnEscape: true,
-		modal: true
+		modal: true,
+		width: 400
 	});
 };
 
@@ -63,4 +64,13 @@ sistemaJS.exibirPergunta = function(texto, callbackSuccess) {
 			}
 		}
 	});
+}
+
+sistemaJS.guid = function () {
+	function s4() {
+		return Math.floor((1 + Math.random()) * 0x10000)
+			.toString(16)
+			.substring(1);
+	}
+	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }

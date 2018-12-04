@@ -3,7 +3,8 @@
 	width: 300px;
 }
 
-.valorProduto {
+.valorProduto,
+.quantidadeProduto {
 	width: 100px;
 }
 
@@ -11,7 +12,8 @@
 .selecaoCliente,
 .nomeProduto,
 .selecaoProduto,
-.valorProduto {
+.valorProduto,
+.quantidadeProduto{
 	display: inline-block;
 }
 
