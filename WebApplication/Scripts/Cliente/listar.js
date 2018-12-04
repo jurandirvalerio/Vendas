@@ -21,7 +21,11 @@ clienteJS.excluir = function (e) {
 	};
 
 	var _excluir = function() {
-		$.post(_urlCompletaExclusao, _preencherCliente()).done(_done);
+		$.ajax({
+			method: 'post',
+			url: _urlCompletaExclusao,
+			data: _preencherCliente()
+		}).done(_done);
 	};
 
 	sistemaJS.exibirPergunta("Confirmar a exclusão?", _excluir);
