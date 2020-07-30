@@ -1,6 +1,6 @@
 # Vendas
 
-Project to demonstrate how to do:
+Project made for traininig to demonstrate how to do:
 
 - Naming patterns for classes, variables, etc;
 - Samples of repository pattern;
