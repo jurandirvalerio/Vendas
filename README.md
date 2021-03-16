@@ -2,8 +2,10 @@
 
 Project made for traininig to demonstrate how to do:
 
-- Naming patterns for classes, variables, etc;
-- Samples of repository pattern;
-- Samples of service pattern;
-- Dependency injection
-- Custom implementations based on DI for an application distributed for several clients;
+Projeto feito para demonstrar alguns exemplos de:
+
+- Convenções referentes a nomenclatura de classes, variáveis, etc;
+- Implementação do padrão Repository;
+- Implementação do padrão Service Layer;
+- Injeção de dependências;
+- Customizações de injeção baseado em variáveis.
